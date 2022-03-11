@@ -13,10 +13,11 @@ namespace eTickets.Controllers
         {
             _service = service;
         }
-        public async  Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var data = await _service.GetAll();
             return View(data);
+            
         }
 
         // Get: Actors / create

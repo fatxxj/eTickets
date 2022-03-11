@@ -34,5 +34,12 @@ namespace eTickets.Data.Services
         {
             throw new System.NotImplementedException();
         }
+
+        void IActorsService.Delete(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+      
     }
 }
