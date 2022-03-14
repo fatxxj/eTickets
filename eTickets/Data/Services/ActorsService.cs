@@ -1,4 +1,5 @@
-﻿using eTickets.Models;
+﻿using eTickets.Data.Base;
+using eTickets.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,40 +7,14 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
-    public class ActorsService : IActorsService
+    public class ActorsService :EntityBaseRepository<Actor>, IActorsService
     {
-        private readonly AppDbContext _context;
-        public ActorsService(AppDbContext context)
+        public ActorsService(AppDbContext context): base(context)
         {
-            _context = context; 
+            
         }
-        public void add(Actor actor)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Actor>> GetAll()
-        {
-            var result = await _context.Actors.ToListAsync();
-            return result;
-
-        }
-
-        public Actor GetById(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Actor Update(int id, Actor newActor)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void IActorsService.Delete(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        
+        
       
     }
 }
