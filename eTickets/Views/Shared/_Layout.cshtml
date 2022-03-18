@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 </head>
 <body>
+    <!--View components are called from layout.cshtml-->
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -43,7 +44,25 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                     </form>
 
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
 
+                 @*User profile section*@
+
+                 <div class="dropdown">
+                     <button class="btn btn-outline-success dropdown-toggle" 
+                     type="button" id="profile-btn" data-toggle="dropdown" aria-expanded="false" >
+
+                     <i class="bi bi-person-badge"></i>Hello User
+                     </button>
+                     <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                         <li>
+                             <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                 <i class="bi bi-list"></i>Orders</a>
+                         </li>
+                     </ul>
+                 </div>
                     
                 </div>
             </div>
